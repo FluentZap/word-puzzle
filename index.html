@@ -6,10 +6,28 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/jquery-3.3.1.js" type="text/javascript"></script>
     <script src="js/bootstrap.js" type="text/javascript"></script>
+    <script src="js/jquery-ui.js" type="text/javascript"></script>
     <script src="js/scripts.js" type="text/javascript"></script>
     <title></title>
   </head>
   <body>
+    <div class="container">
+      <div id="question">
+        <input class="form-control" type="text" placeholder="Puzzle Question" id="textInput">
+        <button type="button" name="button" id="scramble">Scramble</button>
+      </div>
+
+      <div id="answer">
+        <h3 id="puzzleDisplay"></h3>
+        <input class="form-control" type="text" placeholder="Puzzle Answer" id="textInputAnswer">
+        <button type="button" name="button" id="solve">Solve</button>
+      </div>
+      <div id="correct">
+        <h1>Woohoo!! You guessed it!</h1>
+        The answer was <span id="showAnswer"></span>.
+      </div>
+
+    </div>
 
   </body>
 </html>
