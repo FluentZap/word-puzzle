@@ -1,33 +1,13 @@
 var answer;
 var vowels = ["a", "e", "i", "o", "u"];
-var puzzle = "";
+var question = "";
 
 $(document).ready(function () {
   $("#scramble").click(function() {
-
     answer = $("#textInput").val();
+    question = scramble($("#textInput").val());
 
-    var isVowel;
-    for(var i=0; i < answer.length; i++) {
-
-      //letter = "p"
-      var letter = answer[i];
-      var letterLower = answer[i].toLowerCase();
-
-      isVowel = false;
-      //v = 0
-      for(var v=0; v < vowels.length; v++) {
-        if(letterLower === vowels[v]) isVowel = true;
-            }
-
-      if (isVowel === true) {
-        puzzle += "-";
-      } else {
-        puzzle += letter;
-      }
-    }
-
-    $("#puzzleDisplay").text(puzzle);
+    $("#puzzleDisplay").text(question);
     $("#question").fadeOut(function () {
       $("#answer").fadeIn();
     });
@@ -62,3 +42,28 @@ $("#solve").click(function() {
 });
 
 });
+
+
+function scramble(scrambleWord) {
+  var isVowel;
+  var puzzle = "";
+  
+  for(var i=0; i < scrambleWord.length; i++) {
+    //letter = "p"
+    var letter = scrambleWord[i];
+    var letterLower = scrambleWord[i].toLowerCase();
+
+    isVowel = false;
+    //v = 0
+    for(var v=0; v < vowels.length; v++) {
+      if(letterLower === vowels[v]) isVowel = true;
+          }
+
+    if (isVowel === true) {
+      puzzle += "-";
+    } else {
+      puzzle += letter;
+    }
+  }
+  return puzzle;
+}
